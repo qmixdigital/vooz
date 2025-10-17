@@ -58,9 +58,14 @@ function generateReviews(count) {
         reviewCard.setAttribute('itemtype', 'https://schema.org/Review');
 
         reviewCard.innerHTML = `
+            <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Service">
+                <meta itemprop="name" content="VOOZIPTV - Teste IPTV">
+            </div>
             <div class="review-header">
                 <div class="reviewer-info">
-                    <strong itemprop="author">${reviewsData.names[nameIndex]}</strong>
+                    <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <strong itemprop="name">${reviewsData.names[nameIndex]}</strong>
+                    </span>
                     <span class="reviewer-location">${reviewsData.cities[cityIndex]}</span>
                 </div>
                 <div class="review-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
