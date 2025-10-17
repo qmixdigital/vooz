@@ -337,25 +337,17 @@
             <h2>O Que Dizem Nossos Clientes</h2>
             <p class="section-intro">Veja a opinião de quem já fez o teste IPTV e decidiu assinar nossos planos.</p>
             <div class="reviews-grid">
-                <div class="review-card" itemscope itemtype="https://schema.org/Review">
-                    <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
-                        <meta itemprop="name" content="VOOZIPTV - Serviço de IPTV">
-                        <meta itemprop="brand" content="VOOZIPTV">
-                    </div>
+                <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-info">
-                            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                <strong itemprop="name">Carlos Silva</strong>
-                            </span>
+                            <strong>Carlos Silva</strong>
                             <span class="reviewer-location">São Paulo, SP</span>
                         </div>
-                        <div class="review-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-                            <meta itemprop="ratingValue" content="5">
-                            <meta itemprop="bestRating" content="5">
+                        <div class="review-stars">
                             ★★★★★
                         </div>
                     </div>
-                    <p itemprop="reviewBody">Fiz o teste IPTV e fiquei impressionado com a qualidade. O processo foi super rápido e automatizado. Assinei o plano anual e não me arrependo. Recomendo!</p>
+                    <p>Fiz o teste IPTV e fiquei impressionado com a qualidade. O processo foi super rápido e automatizado. Assinei o plano anual e não me arrependo. Recomendo!</p>
                 </div>
                 <div class="review-card" itemscope itemtype="https://schema.org/Review">
                     <div class="review-header">
@@ -1015,6 +1007,40 @@
                 }
             ]
         }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "VOOZIPTV - Serviço de IPTV",
+        "brand": {
+            "@type": "Brand",
+            "name": "VOOZIPTV"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "2021",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "author": {
+                    "@type": "Person",
+                    "name": "Carlos Silva"
+                },
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                },
+                "reviewBody": "Fiz o teste IPTV e fiquei impressionado com a qualidade. O processo foi super rápido e automatizado. Assinei o plano anual e não me arrependo. Recomendo!"
+            }
+        ]
     }
     </script>
 

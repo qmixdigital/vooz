@@ -54,28 +54,18 @@ function generateReviews(count) {
 
         const reviewCard = document.createElement('div');
         reviewCard.className = 'review-card hidden-item';
-        reviewCard.setAttribute('itemscope', '');
-        reviewCard.setAttribute('itemtype', 'https://schema.org/Review');
 
         reviewCard.innerHTML = `
-            <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
-                <meta itemprop="name" content="VOOZIPTV - Serviço de IPTV">
-                <meta itemprop="brand" content="VOOZIPTV">
-            </div>
             <div class="review-header">
                 <div class="reviewer-info">
-                    <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        <strong itemprop="name">${reviewsData.names[nameIndex]}</strong>
-                    </span>
+                    <strong>${reviewsData.names[nameIndex]}</strong>
                     <span class="reviewer-location">${reviewsData.cities[cityIndex]}</span>
                 </div>
-                <div class="review-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-                    <meta itemprop="ratingValue" content="5">
-                    <meta itemprop="bestRating" content="5">
+                <div class="review-stars">
                     ★★★★★
                 </div>
             </div>
-            <p itemprop="reviewBody">${reviewsData.reviews[reviewIndex]}</p>
+            <p>${reviewsData.reviews[reviewIndex]}</p>
         `;
 
         reviewsContainer.appendChild(reviewCard);
