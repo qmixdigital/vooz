@@ -321,6 +321,8 @@
     </section>
 
     <!-- Avaliações -->
+    <!-- Todo conteúdo está presente no HTML para indexação pelos mecanismos de busca -->
+    <!-- JavaScript apenas melhora a experiência do usuário (Progressive Enhancement) -->
     <section id="avaliacoes">
         <div class="container">
             <h2>O Que Dizem Nossos Clientes</h2>
@@ -651,6 +653,8 @@
     </section>
 
     <!-- FAQ -->
+    <!-- Todo conteúdo está presente no HTML para indexação pelos mecanismos de busca -->
+    <!-- JavaScript apenas melhora a experiência do usuário (Progressive Enhancement) -->
     <section id="faq">
         <div class="container">
             <h2>Perguntas Frequentes</h2>
@@ -1000,5 +1004,73 @@
     </script>
 
     <script src="reviews-data.js"></script>
+    <script>
+        // Sistema de "Ver Mais" - Progressive Enhancement
+        // Todo conteúdo fica no HTML para SEO, JavaScript apenas melhora UX
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // FAQ - Mostrar apenas 3 inicialmente
+            const faqItems = document.querySelectorAll('.faq-item');
+            const faqSection = document.querySelector('#faq .container');
+            
+            if (faqItems.length > 3) {
+                // Ocultar itens após o terceiro
+                faqItems.forEach((item, index) => {
+                    if (index >= 3) {
+                        item.classList.add('hidden-item');
+                    }
+                });
+                
+                // Criar botão "Ver Mais"
+                const faqShowMoreBtn = document.createElement('button');
+                faqShowMoreBtn.className = 'show-more-btn';
+                faqShowMoreBtn.innerHTML = 'Ver Todas as Perguntas (' + faqItems.length + ')';
+                faqShowMoreBtn.onclick = function() {
+                    faqItems.forEach((item, index) => {
+                        if (index >= 3) {
+                            item.classList.remove('hidden-item');
+                            item.classList.add('show-item');
+                        }
+                    });
+                    this.style.display = 'none';
+                };
+                
+                faqSection.appendChild(faqShowMoreBtn);
+            }
+            
+            // Reviews - Mostrar apenas 6 inicialmente
+            setTimeout(function() {
+                const reviewCards = document.querySelectorAll('.review-card');
+                const reviewSection = document.querySelector('#avaliacoes .container');
+                
+                if (reviewCards.length > 6) {
+                    // Ocultar reviews após a sexta
+                    reviewCards.forEach((card, index) => {
+                        if (index >= 6) {
+                            card.classList.add('hidden-item');
+                        }
+                    });
+                    
+                    // Criar botão "Ver Mais"
+                    const reviewShowMoreBtn = document.createElement('button');
+                    reviewShowMoreBtn.className = 'show-more-btn';
+                    reviewShowMoreBtn.innerHTML = 'Ver Todas as Avaliações (' + reviewCards.length + ')';
+                    reviewShowMoreBtn.style.display = 'block';
+                    reviewShowMoreBtn.style.margin = '30px auto 0';
+                    reviewShowMoreBtn.onclick = function() {
+                        reviewCards.forEach((card, index) => {
+                            if (index >= 6) {
+                                card.classList.remove('hidden-item');
+                                card.classList.add('show-item');
+                            }
+                        });
+                        this.style.display = 'none';
+                    };
+                    
+                    reviewSection.appendChild(reviewShowMoreBtn);
+                }
+            }, 500); // Aguarda geração das reviews dinâmicas
+        });
+    </script>
 </body>
 </html>

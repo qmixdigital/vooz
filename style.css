@@ -798,6 +798,7 @@ h3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    position: relative;
 }
 
 .review-card {
@@ -808,6 +809,26 @@ h3 {
 
 .review-card:hover {
     border-color: #666666;
+}
+
+.review-card.hidden-item {
+    display: none;
+}
+
+.review-card.show-item {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .review-header {
@@ -883,11 +904,21 @@ h3 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    position: relative;
 }
 
 .faq-item {
     border: 1px solid #333333;
     padding: 20px;
+}
+
+.faq-item.hidden-item {
+    display: none;
+}
+
+.faq-item.show-item {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
 }
 
 .faq-item h3 {
@@ -901,6 +932,46 @@ h3 {
 
 .faq-answer p {
     margin-bottom: 10px;
+}
+
+.show-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #000000;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    border: 2px solid #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 30px auto 0;
+}
+
+.show-more-btn:hover {
+    background: #FFFFFF;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+.show-more-btn.hidden {
+    display: none;
+}
+
+/* Container para centralizar botão */
+#faq .container,
+#avaliacoes .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#faq .faq-list,
+#avaliacoes .reviews-grid {
+    width: 100%;
 }
 
 /* CTA Final */
